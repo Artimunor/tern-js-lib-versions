@@ -14,8 +14,8 @@ A plugin for the [Tern](https://docs.stencil.so/tern/) terminal that opens a `pa
   | Package manager | Settings | Read from |
   | --- | --- | --- |
   | Bun | `minimumReleaseAge`, `minimumReleaseAgeExcludes` | `bunfig.toml`, `~/.bunfig.toml` |
-  | pnpm | `minimumReleaseAge`, `minimumReleaseAgeExclude` | `pnpm-workspace.yaml`, `.npmrc`, pnpm's global config |
   | pnpm | `minimumReleaseAge` (`minimum-release-age` in `.npmrc`), `minimumReleaseAgeExclude` | `pnpm-workspace.yaml`, `.npmrc`, pnpm's global config |
+  | Yarn | `npmMinimalAgeGate`, `npmPreapprovedPackages` | `.yarnrc.yml` in the project, its parent folders and the home folder |
   | npm | `min-release-age`, `before` | `.npmrc`, `~/.npmrc` |
 
   The **Min release age** menu in the header changes the setting in the project's config file. If a setting can't be read, every update is held.
