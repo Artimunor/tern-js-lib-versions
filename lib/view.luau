@@ -395,11 +395,11 @@ local function head(st: State, doc: Doc?, busy: boolean): Node
 		ui.button("Refresh", { key = "refresh", icon = "repeat", keys = { "r" }, busy = busy, actions = { click = "refresh" } })
 	)
 	table.insert(controls, ui.button("Open as text", { key = "text", icon = "doc", keys = { "o" }, actions = { click = "text" } }))
-	-- The controls keep their size; the name and meta wrap beside them, and the controls drop below when the block
-	-- is too narrow for both.
+	-- The controls sit beside the name and meta when both fit, else drop below them, and wrap onto more lines in a
+	-- block narrower than they are; nothing runs past the block's edge.
 	return ui.node("row", { key = "head", justify = "between", align = "center", wrap = true, gap = "md" }, {
 		ui.text({ ui.span(name, "title"), ui.span("   " .. table.concat(meta, " · "), "muted") }),
-		ui.node("row", { key = "end", gap = "sm", align = "center", basis = "content" }, controls),
+		ui.node("row", { key = "end", gap = "sm", align = "center", wrap = true }, controls),
 	})
 end
 
@@ -551,7 +551,7 @@ function M.render(st: State, _cx: BlockCx): BlockView
 		page,
 		ui.node("row", { key = "summary", justify = "between", align = "center", wrap = true, gap = "md" }, {
 			strip,
-			ui.node("row", { key = "bulk", gap = "sm", align = "center", basis = "content" }, {
+			ui.node("row", { key = "bulk", gap = "sm", align = "center", wrap = true }, {
 				bulk_button("minor", minorB.edits),
 				bulk_button("major", majorB.edits),
 			}),
