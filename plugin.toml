@@ -1,0 +1,17 @@
+schema = 1
+id = "js-lib-versions"
+name = "JS Lib Versions"
+version = "0.1.0"
+description = "Opens package.json as a dependency table with the newest minor and major npm versions your package manager's minimum release age allows, workspace catalogs resolved, and per-package or update-all buttons."
+icon = "app-node"
+host = "host.luau"
+window = "window.luau"
+
+[[blocks]]
+id = "deps"
+title = "JS Lib Versions"
+icon = "app-node"
+# "Open with › JS Lib Versions" in a package.json file block's menu and the Files pane.
+files = ["package.json"]
+# The block needs a file: it opens from the route, "Open with" or cx:new_block.
+palette = false
